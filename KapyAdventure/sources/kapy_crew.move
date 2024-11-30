@@ -60,7 +60,7 @@ fun init(otw: KAPY_CREW, ctx: &mut TxContext) {
         utf8(b"Complete exercises to recruit pirates and go find treasure!"),
         // image_url
         utf8(
-            b"https://ipfs.io/ipfs/QmNsRt9i8jm8N5sDTeGSzy4p2pwggfDwHQxC9PiKtqh7gP/KapyCrew_{strength}.png",
+            b"https://ipfs.io/ipfs/QmYmdsih37DJe8RRcWGhEe2WUGN6Vmog5ezyndMBGgqotE/KapyCrew_{strength}.png",
         ),
         // project_url
         utf8(b"https://lu.ma/eajq2r68"),
