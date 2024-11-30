@@ -60,6 +60,16 @@ public fun new_by_god(
     new_internal(kind, ctx)
 }
 
+entry fun new_by_god_to(
+    _cap: &GodPower,
+    kind: u8,
+    recipient: address,
+    ctx: &mut TxContext,
+) {
+    let pirate = new_internal(kind, ctx);
+    transfer::transfer(pirate, recipient);
+}
+
 //  Getter Funs
 
 public fun kind(pirate: &KapyPirate): u8 {

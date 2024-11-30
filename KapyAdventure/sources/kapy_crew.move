@@ -60,7 +60,7 @@ fun init(otw: KAPY_CREW, ctx: &mut TxContext) {
         utf8(b"Complete exercises to recruit pirates and go find treasure!"),
         // image_url
         utf8(
-            b"https://aqua-natural-grasshopper-705.mypinata.cloud/ipfs/Qmd9RpFKPBDzHdfnq7HSdhND9svg1fJxr7GAwTYwfEr5vh/KapyCrew_{strength}.png",
+            b"https://ipfs.io/ipfs/QmNsRt9i8jm8N5sDTeGSzy4p2pwggfDwHQxC9PiKtqh7gP/KapyCrew_{strength}.png",
         ),
         // project_url
         utf8(b"https://lu.ma/eajq2r68"),
@@ -104,6 +104,17 @@ public fun build_crew_by_god(
     ctx: &mut TxContext,
 ): KapyCrew {
     build_crew_internal(world, name, ctx)
+}
+
+entry fun build_crew_by_god_to(
+    world: &mut KapyWorld,
+    _cap: &GodPower,
+    name: String,
+    recipient: address,
+    ctx: &mut TxContext,
+) {
+    let crew = build_crew_internal(world, name, ctx);
+    transfer::transfer(crew, recipient);
 }
 
 public fun update_name(crew: &mut KapyCrew, name: String) {
