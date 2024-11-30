@@ -1,6 +1,7 @@
 module lesson_2::lesson_2;
 
 use std::string::{String, utf8};
+use lesson_1::a::A;
 
 fun hello_world_bytes(): vector<u8> {
     b"hello world"
@@ -9,6 +10,10 @@ fun hello_world_bytes(): vector<u8> {
 public fun hello_world(): String {
     let bytes = hello_world_bytes();
     utf8(bytes)
+}
+
+public fun a_say_hello_world(a: &mut A) {
+    a.say(hello_world());
 }
 
 public fun sum(a: u64, b: u64): u64 {
