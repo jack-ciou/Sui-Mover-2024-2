@@ -11,7 +11,11 @@ CLI commands
 ```
 sui client switch --address [Owner Account] --env mainnet
 ```
-2. Call the `solve` function to recruit first pirate
+2. Check the data of your KapyCrew (like `index` etc)
+```
+sui client object [KapyCrew Object ID]
+```
+3. Call the `solve` function to recruit first pirate
 ```
 sui client call --package [Package ID] --module [Module Name] --function [Function Name] --args [KapyWorld Object ID] [KapyCrew Object ID] [Crew Name] [Answer 1] [Answer 2]
 ```
