@@ -21,11 +21,9 @@ async function main() {
     cursor = res.nextCursor;
   }
 
-  console.log(
-    Array.from(scoreMap.entries()).map((entry) =>
-      console.log(`${entry[0]}: ${entry[1]}`),
-    ),
-  );
+  Array.from(scoreMap.entries())
+    .sort((x, y) => x[0] - y[0])
+    .map((entry) => console.log(`${entry[0]}: ${entry[1]}`));
 }
 
 main().catch((err) => console.log(err));
