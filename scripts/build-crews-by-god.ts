@@ -29,7 +29,7 @@ async function main() {
       showEffects: true,
     },
   });
-  console.log(res.effects?.created);
+  console.log(res.effects?.created?.length);
 }
 
 main().catch((err) => console.log(err));
