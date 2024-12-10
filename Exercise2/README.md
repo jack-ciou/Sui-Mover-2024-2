@@ -6,6 +6,10 @@
 ```
 
 ### Objects
+PickaxeStore
+```
+0x01a84f508b052c75b47f2ae42606ffbd9f1b86a265a5ec15682d3e9ad6bf1a89
+```
 Mine 0
 ```
 0x54ee6c18d5def29046c825b20aa573ca870f0973c92587645c6a70b4e24fcb5c
@@ -25,10 +29,6 @@ Mine 3
 Mine 4
 ```
 0x0167da80aad5064f55d217f424252064c59a967d109ce8e51e5c707f17a7658d
-```
-PickaxeStore
-```
-0x01a84f508b052c75b47f2ae42606ffbd9f1b86a265a5ec15682d3e9ad6bf1a89
 ```
 
 ### Hints
