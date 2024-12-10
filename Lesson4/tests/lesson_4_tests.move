@@ -25,7 +25,7 @@ module lesson_4::lesson_4_tests {
         next_tx(scenario, ADMIN);
     }
 
-    fun test_retart(scenario: &mut Scenario) {
+    fun test_restart(scenario: &mut Scenario) {
         let mut dougeon = dougeon(scenario);
         lesson_4::restart(&mut dougeon, ctx(scenario));
         return_shared(dougeon);
@@ -100,7 +100,7 @@ module lesson_4::lesson_4_tests {
         assert!(player_info[2] == 3, 0);
         std::debug::print(&player_info);
 
-        test_retart(&mut scenario);
+        test_restart(&mut scenario);
         // restarted
         let player_info = test_get_player_info(&mut scenario);
         assert!(player_info[0] == 0, 0);
@@ -116,7 +116,7 @@ module lesson_4::lesson_4_tests {
     fun test_restart_failed() {
         let mut scenario = scenario();
         test_walk(&mut scenario, true, true, 2);
-        test_retart(&mut scenario);
+        test_restart(&mut scenario);
         end(scenario);
     }
 

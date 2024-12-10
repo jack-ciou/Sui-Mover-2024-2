@@ -3,9 +3,9 @@ module lesson_4::lesson_4 {
 
     // ====== Constants ======
     const C_MIN_X: u64 = 0;
-    const C_MAX_X: u64 = 7;
+    const C_MAX_X: u64 = 5;
     const C_MIN_Y: u64 = 0;
-    const C_MAX_Y: u64 = 7;
+    const C_MAX_Y: u64 = 5;
     const C_WALL: vector<vector<u64>> = vector[
         vector[0, 1], vector[0, 2], vector[0, 5], vector[1, 5],
         vector[3, 0], vector[3, 5], vector[4, 2], vector[4, 3],
