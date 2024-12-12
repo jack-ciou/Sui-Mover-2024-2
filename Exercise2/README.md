@@ -36,3 +36,14 @@ Mine 4
 2. Use the Pickaxe go to correct mine to get Ore
 3. Forge the Ore to build a Sword
 4. Use the Sword to recruit a swordsman pirate
+
+
+### PTB method
+1. Open the following file and do all the TODOs
+```
+scripts/solve-exercise-2.ts
+```
+2. Run the script
+```
+tsx scripts/solve-exercise-2.ts
+```
