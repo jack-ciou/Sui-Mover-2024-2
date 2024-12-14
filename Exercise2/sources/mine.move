@@ -52,9 +52,13 @@ public fun exploit(
     
     let id = object::new(ctx);
     let range = ((pickaxe.tier() / 3) as u256);
-    let offset = ((pickaxe.tier() / 2) as u256);
-    let quality = offset + id.to_address().to_u256() % range;
-    let quality = (quality as u8);
+    let quality = if (range > 0) {
+        let offset = ((pickaxe.tier() / 2) as u256);
+        let quality = offset + id.to_address().to_u256() % range;
+        (quality as u8)
+    } else {
+        0
+    };
     Ore { id, quality }
 }
 
