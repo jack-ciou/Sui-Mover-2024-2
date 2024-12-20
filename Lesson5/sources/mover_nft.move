@@ -13,9 +13,6 @@ module lesson_5::mover_nft {
     const E_EMPTY_POOL: u64 = 2;
     const E_NOT_LIVE: u64 = 3;
 
-    /// One time witness is only instantiated in the init method
-    public struct MOVER_NFT has drop {}
-
     public struct Tails has key, store {
         id: UID,
         name: String,
@@ -24,6 +21,9 @@ module lesson_5::mover_nft {
         url: Url, // ibafybeiaotsmbrfvn3u3xiobrxlrzbhffnlqyui5sweohjbd3l2bhyvndpm
         attributes: VecMap<String, String>,
     }
+
+    /// One time witness is only instantiated in the init method
+    public struct MOVER_NFT has drop {}
 
     public struct ManagerCap has key, store { id: UID }
 
@@ -115,32 +115,17 @@ module lesson_5::mover_nft {
         attribute_values: vector<String>,
         ctx: &mut TxContext,
     ) {
-        let url = url::new_unsafe_from_bytes(url);
-        let attributes = vec_map::from_keys_values(attribute_keys, attribute_values);
-        let nft = new_nft(name, number, url, attributes, ctx);
-
-        table_vec::push_back(&mut pool.tails, nft);
-        pool.num = pool.num + 1;
-    }
-
-    fun new_nft(
-        name: String,
-        number: u64,
-        url: Url,
-        attributes: VecMap<String, String>,
-        ctx: &mut TxContext,
-    ): Tails {
-
         let nft = Tails {
             id: object::new(ctx),
             name,
             number,
             description: string::utf8(b"Tails by Sui Mover 2024."),
-            url,
-            attributes,
+            url: url::new_unsafe_from_bytes(url),
+            attributes: vec_map::from_keys_values(attribute_keys, attribute_values)
         };
 
-        nft
+        table_vec::push_back(&mut pool.tails, nft);
+        pool.num = pool.num + 1;
     }
 
     public struct Whitelist has key {
@@ -217,17 +202,15 @@ module lesson_5::mover_nft {
         event::emit(mint_event);
     }
 
-    fun mint(
+    entry fun free_mint(
         pool: &mut Pool,
         whitelist_token: Whitelist,
-        random: &Random,
+        random: &Random, // 0x8
         ctx: &mut TxContext,
-    ): Tails {
+    ) {
         assert!(pool.is_live, E_NOT_LIVE);
-
         let len = table_vec::length(&pool.tails);
         assert!(len > 0, E_EMPTY_POOL);
-
         let Whitelist {id, pool_id} = whitelist_token;
         object::delete(id);
         assert!(pool_id == object::id(pool), E_INVALID_WHITELIST);
@@ -237,9 +220,7 @@ module lesson_5::mover_nft {
         } else {
             let mut generator = random::new_generator(random, ctx);
             let i = random::generate_u64_in_range(&mut generator, 0, len-1);
-            table_vec::swap(&mut pool.tails, i, len-1);
-            table_vec::pop_back(&mut pool.tails)
-            // table_vec::swap_remove(&mut pool.tails, i)
+            table_vec::swap_remove(&mut pool.tails, i)
         };
 
         let mint_event = MintEvent {
@@ -251,18 +232,7 @@ module lesson_5::mover_nft {
             attributes: nft.attributes,
             sender: tx_context::sender(ctx)
         };
-
         event::emit(mint_event);
-        nft
-    }
-
-    entry fun free_mint(
-        pool: &mut Pool,
-        whitelist_token: Whitelist,
-        random: &Random, // 0x8
-        ctx: &mut TxContext,
-    ) {
-        let nft = mint(pool, whitelist_token, random, ctx);
         transfer::public_transfer(nft, ctx.sender());
     }
 
