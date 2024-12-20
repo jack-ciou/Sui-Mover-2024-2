@@ -58,11 +58,6 @@ module lesson_5::simple_nft {
         transfer::public_transfer(display, sender);
     }
 
-
-
-
-
-
     // ===== Public view functions =====
 
     /// Get the NFT's `name`
