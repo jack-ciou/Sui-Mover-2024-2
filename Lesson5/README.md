@@ -28,3 +28,5 @@ sui client ptb \
 --assign publisher @0x054de66991fc22281da529590ad269a1ee1df4b68084d7b5ae99fb9a3c04aeb1 \
 --move-call 0xbccf3732710974ca6ed41ee23e5328b9a6a63ee25ab0b1f25abeb6954a8467d1::simple_nft::update_display publisher
 ```
+
+https://docs.google.com/presentation/d/1pUCkwEflglugZ5aRpLxmuifCacQMu0z4iXri_7EPlRY/edit?usp=sharing
