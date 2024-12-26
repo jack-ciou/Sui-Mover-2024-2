@@ -1,35 +1,28 @@
 module exercise::exercise {
-    use sui::transfer;
-    use sui::object::{Self, UID};
-    use sui::tx_context::TxContext;
+    use mover_nft::mover_nft::Tails;
+    use lesson_5::simple_nft::SimpleNFT;
 
-    use mover_nft::mover_nft::{Self, Tails, ManagerCap};
+    use kapy_adventure::kapy_world::KapyWorld;
+    use kapy_adventure::kapy_crew::KapyCrew;
+    use kapy_adventure::kapy_pirate;
 
-    struct Registry has key {
-        id: UID,
-        manager_cap: ManagerCap,
-    }
+    const PIRATE_KIND: u8 = 3;
 
-    entry fun create_registry(manager_cap: ManagerCap, ctx: &mut TxContext) {
-        let registry = Registry {
-            id: object::new(ctx),
-            manager_cap
-        };
+    public struct NFT_EXERCISE has drop {}
 
-        transfer::share_object(registry);
-    }
-
-    public fun earn_exp_mut(registry: &Registry, nft_mut: &mut Tails) {
-        mover_nft::nft_exp_up(&registry.manager_cap, nft_mut, 1_000);
-    }
-
-    public fun earn_exp(registry: &Registry, nft: Tails): Tails {
-        mover_nft::nft_exp_up(&registry.manager_cap, &mut nft, 1_000);
-        nft
-    }
-
-    public fun level_up(registry: &Registry, nft: Tails): Tails {
-        mover_nft::level_up(&registry.manager_cap, &mut nft);
-        nft
+    public fun goal(
+        world: &KapyWorld,
+        crew: &mut KapyCrew,
+        _simple_nft: &SimpleNFT,
+        _tails: &Tails,
+        ctx: &mut TxContext
+    ) {
+        let pirate = kapy_pirate::new(
+        world,
+        PIRATE_KIND,
+            NFT_EXERCISE {},
+        ctx,
+        );
+        crew.recruit(pirate);
     }
 }

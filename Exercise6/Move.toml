@@ -1,7 +1,8 @@
 [package]
 name = "exercise"
 version = "1.0.0"
-published-at = "0xde4b05571fc9788431781cb771db1d68d4c14d50edf1c6f3da9dd2e98c022278"
+edition = "2024.beta"
+published-at = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
 
 [dependencies.Sui]
 git = "https://github.com/MystenLabs/sui.git"
@@ -11,9 +12,11 @@ override = true
 
 [dependencies]
 Kiosk = { git = "https://github.com/MystenLabs/apps.git", subdir = "kiosk", rev = "main" }
-mover_nft = { local = "../mover_nft" }
+KapyAdventure =  { local = "../KapyAdventure" }
+lesson_5 = { local = "../Lesson5" }
+mover_nft = { local = "../Lesson6" }
 
 [addresses]
-exercise = "0x0"
+exercise = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
 
-# UpgradeCap = 0xf86781ba8fa1506d4e703fb9ab6fc748735b9df140a747eb9568a1e74eda3719
+# UpgradeCap =
