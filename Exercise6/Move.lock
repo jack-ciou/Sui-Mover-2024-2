@@ -2,7 +2,7 @@
 
 [move]
 version = 3
-manifest_digest = "3B45F23E86E85E040FBA5A9205187B67FD474F2119DF8322B09216B5E02AFA75"
+manifest_digest = "9F44EBCD6C39443B443B94E0A42209C999EC1BEE69C7D2642214B08155FC0CE8"
 deps_digest = "397E6A9F7A624706DBDFEE056CE88391A15876868FD18A88504DA74EB458D697"
 dependencies = [
   { id = "KapyAdventure", name = "KapyAdventure" },
@@ -67,5 +67,5 @@ flavor = "sui"
 [env.mainnet]
 chain-id = "35834a8a"
 original-published-id = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
-latest-published-id = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
-published-version = "1"
+latest-published-id = "0xfe6547fbe5b84f9638e88157c5b641a5d059119cb7a8283ff4a53c49b211d318"
+published-version = "2"

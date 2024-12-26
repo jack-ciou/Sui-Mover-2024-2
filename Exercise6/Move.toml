@@ -1,8 +1,8 @@
 [package]
 name = "exercise"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2024.beta"
-published-at = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
+published-at = "0xfe6547fbe5b84f9638e88157c5b641a5d059119cb7a8283ff4a53c49b211d318"
 
 [dependencies.Sui]
 git = "https://github.com/MystenLabs/sui.git"
@@ -19,4 +19,4 @@ mover_nft = { local = "../Lesson6" }
 [addresses]
 exercise = "0xa3fcf900a51ea683bee5ad8a9cda64b0a2d48a18fe716fc910fad4f7a114a7ae"
 
-# UpgradeCap =
+# UpgradeCap = 0x7c102708a28295e4959da6e020e95a11a726c47f156d30d6271230f559c6815c
