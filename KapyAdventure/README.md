@@ -24,7 +24,7 @@ Publisher (KapyCrew)
 ```
 0xa5fae9751e3c4aef011bb8983d22400b4c156bd18836a3d60dcb09a9a99fe62e
 ```
-DisPlay (KapyCrew)
+Display (KapyCrew)
 ```
 0x9c3cae46b5aca3c661b5a498e7e874f0a8f34f70ab87681ecda957a69dab5410
 ```
