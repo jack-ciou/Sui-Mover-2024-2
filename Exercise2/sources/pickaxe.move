@@ -5,6 +5,7 @@ module exercise_2::pickaxe;
 use sui::coin::{Self, Coin};
 use sui::balance::{Self, Balance};
 use sui::sui::SUI;
+use kapy_adventure::kapy_world::{GodPower};
 
 // Constants
 
@@ -71,6 +72,26 @@ public fun destroy(pickaxe: Pickaxe): u8 {
     let Pickaxe { id, tier } = pickaxe;
     id.delete();
     tier
+}
+
+public fun withdraw(
+    store: &mut PickaxeStore,
+    _power: &GodPower,
+    value: u64,
+    ctx: &mut TxContext,
+): Coin<SUI> {
+    store.treasury.split(value).into_coin(ctx)
+}
+
+entry fun withdraw_to(
+    store: &mut PickaxeStore,
+    power: &GodPower,
+    value: u64,
+    recipient: address,
+    ctx: &mut TxContext,
+) {
+    let fund = store.withdraw(power, value, ctx);
+    transfer::public_transfer(fund, recipient);
 }
 
 // Getter Funs
