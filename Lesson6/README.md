@@ -35,6 +35,14 @@ sui client call --gas-budget 100000000 --package 0x27321bc52766f3ed3f809524ca014
 # mint
 
 ```
+sui client call \
+    --package 0x2 \
+    --module kiosk \
+    --function default \
+    --gas-budget 1000000000
+```
+
+```
 sui client ptb \
 --assign pool @0xbc583ae6c5a185ae1d74e7f979f0f57b3b579abc54b6d1141bf4f1889d98ec10 \
 --assign policy @0x9d7f0ec42b5b1b790c893f2679c4edc1efe1d5f20ca63cf23c2460b0042d74d8 \
