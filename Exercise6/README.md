@@ -20,6 +20,18 @@ sui client ptb \
 
 Error executing transaction : InvalidPublicFunctionReturnType { idx: 0 } in command 0
 
+### STEP.1 Mint Simple NFT
+
+https://github.com/SuiMover/Sui-Mover-2024-2/blob/main/Lesson5/README.md#exercise-5-mint-your-simple-nft
+
+### STEP.2 Mint Mover Tails
+
+https://github.com/SuiMover/Sui-Mover-2024-2/blob/main/Lesson6/README.md#mint
+
+### STEP.3
+
+https://github.com/SuiMover/Sui-Mover-2024-2/blob/main/Lesson6/README.md#mint
+
 ## Success
 
 ```
