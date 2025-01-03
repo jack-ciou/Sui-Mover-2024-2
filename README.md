@@ -11,3 +11,14 @@
 [Lesson 4](./Lesson4)
 
 [Exercise 4](./Exercise4)
+
+[Lesson 5](./Lesson5)
+
+[Exercise 5](./Exercise5)
+
+[Lesson 6](./Lesson6)
+
+[Exercise 6](./Exercise6)
+
+[Lesson 7](./Lesson7)
+
