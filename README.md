@@ -22,3 +22,9 @@
 
 [Lesson 7](./Lesson7)
 
+[Exercise 7](./Exercise7)
+
+[Lesson 8](./Lesson8)
+
+[Exercise 8](./Exercise8)
+
